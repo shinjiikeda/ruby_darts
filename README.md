@@ -2,7 +2,6 @@
 
 A Ruby binding for Darts.
 
-
 Example
 
     require 'ruby_darts'

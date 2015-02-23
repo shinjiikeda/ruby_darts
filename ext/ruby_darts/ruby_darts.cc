@@ -37,7 +37,7 @@ darts_trie_allocate(VALUE klass) {
   ptr->m_ptr = NULL;
   ptr->da = new Darts::DoubleArray();
 
-  return Data_Wrap_Struct(klass, -1, darts_free, ptr);
+  return Data_Wrap_Struct(klass, 0, darts_free, ptr);
 }
 
 
