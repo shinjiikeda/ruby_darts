@@ -121,6 +121,24 @@ rb_darts_common_prefix_search(VALUE self, VALUE rb_text) {
   return ret_arr;
 }
 
+static VALUE
+rb_darts_exact_match_search(VALUE self, VALUE rb_text) {
+  darts_t *ptr;
+  char *text;
+  Darts::result_pair_type darts_result;
+  
+  Data_Get_Struct(self, darts_t, ptr);
+  
+  text = StringValuePtr(rb_text);
+  ptr->da->exactMatchSearch(text, darts_result);
+  
+  if (darts_result.length > 0) {
+    return rb_text;
+  } else {
+    return Qnil;
+  }
+}
+
 
 extern "C" void
 Init_ruby_darts(void) {
@@ -132,4 +150,5 @@ Init_ruby_darts(void) {
   rb_define_private_method(cTrie, "initialize", RUBY_METHOD_FUNC(rb_darts_trie_initialize), 1);
   rb_define_method(cTrie, "longest_match", RUBY_METHOD_FUNC(rb_darts_longest_match), 1);
   rb_define_method(cTrie, "common_prefix_search", RUBY_METHOD_FUNC(rb_darts_common_prefix_search), 1);
+  rb_define_method(cTrie, "exact_match_search", RUBY_METHOD_FUNC(rb_darts_exact_match_search), 1);
 }
