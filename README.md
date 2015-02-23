@@ -11,6 +11,9 @@ Example
     # exact match
     result = darts.exact_match_search(text)
     
+    # longest match
+    result = darts.longest_match(text)
+
     # common prefix search
     results = darts.common_prefix_search(text)
     results.each do | token |
