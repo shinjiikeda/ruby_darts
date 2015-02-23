@@ -1,6 +1,6 @@
 #include <ruby.h>
 #include <sys/mman.h>
-#include "darts.h"
+#include "ruby_darts.h"
 
 
 static const int RESULT_SIZE = 100;
@@ -123,7 +123,7 @@ rb_darts_common_prefix_search(VALUE self, VALUE rb_text) {
 
 
 extern "C" void
-Init_darts(void) {
+Init_ruby_darts(void) {
   mDarts = rb_define_module("Darts");
   cTrie = rb_define_class_under(mDarts, "Trie", rb_cObject);
 
