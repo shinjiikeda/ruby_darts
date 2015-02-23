@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["gm.ikeda@gmail.com"]
   spec.summary       = %q{A Ruby binding for Darts.}
   spec.description   = %q{}
-  spec.homepage      = "https://github.com/kubo39/ruby-darts"
+  spec.homepage      = "https://github.com/shinjiikeda/ruby_darts"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
